@@ -97,8 +97,8 @@ class Tournament
     {
         $matches = explode("\n", $scores);
 
-        foreach ($matches as $match) {
-            $this->calculateMatch($match);
+        if ($matches[0] != '') {
+            array_walk($matches, fn($m) => $this->calculateMatch($m));
         }
 
         return $this->displayScoreBoard();

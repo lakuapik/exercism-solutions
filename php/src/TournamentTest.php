@@ -4,11 +4,11 @@
 
 use App\Tournament;
 
-// test('header only no teams', function() {
-//     $scores   = '';
-//     $expected = 'Team                           | MP |  W |  D |  L |  P';
-//     expect(Tournament::handle($scores))->toBe($expected);
-// });
+test('header only no teams', function() {
+    $scores   = '';
+    $expected = 'Team                           | MP |  W |  D |  L |  P';
+    expect(Tournament::handle($scores))->toBe($expected);
+});
 
 test('win is three points loss is zero points', function () {
     $scores = 'Allegoric Alaskans;Blithering Badgers;win';
