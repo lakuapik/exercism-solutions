@@ -1,0 +1,21 @@
+{
+    "name": "lakuapik/exercism-php",
+    "description": "Exercism PHP Solutions",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "lint": "vendor/bin/php-cs-fixer fix src",
+        "test": "vendor/bin/pest --stop-on-failure"
+    },
+    "require": {
+        "php": "^8",
+        "pestphp/pest": "^1.20",
+        "symfony/var-dumper": "^5.3",
+        "friendsofphp/php-cs-fixer": "^3.2"
+    }
+}
