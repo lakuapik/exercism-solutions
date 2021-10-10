@@ -69,7 +69,7 @@ class Tournament
         $this->sortTeamByScores();
     }
 
-    public function sortTeamByScores()
+    public function sortTeamByScores(): void
     {
         array_multisort(
             array_column($this->teams, 'P'),
@@ -98,7 +98,7 @@ class Tournament
         $matches = explode("\n", $scores);
 
         if ($matches[0] != '') {
-            array_walk($matches, fn($m) => $this->calculateMatch($m));
+            array_walk($matches, fn ($m) => $this->calculateMatch($m));
         }
 
         return $this->displayScoreBoard();

@@ -4,7 +4,7 @@
 
 use App\Tournament;
 
-test('header only no teams', function() {
+test('header only no teams', function () {
     $scores   = '';
     $expected = 'Team                           | MP |  W |  D |  L |  P';
     expect(Tournament::handle($scores))->toBe($expected);
