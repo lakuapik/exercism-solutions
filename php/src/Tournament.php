@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * @link https://exercism.org/tracks/php/exercises/tournament
+ * @see https://exercism.org/tracks/php/exercises/tournament
  */
 class Tournament
 {
@@ -12,9 +12,9 @@ class Tournament
     public function addTeams(string ...$teams): void
     {
         foreach ($teams as $team) {
-            if (! array_key_exists($team, $this->teams)) {
+            if (!array_key_exists($team, $this->teams)) {
                 $this->teams[$team] = [
-                    'MP' => 0, 'W' => 0, 'D' => 0, 'L' => 0, 'P' => 0
+                    'MP' => 0, 'W' => 0, 'D' => 0, 'L' => 0, 'P' => 0,
                 ];
             }
         }
@@ -22,26 +22,26 @@ class Tournament
 
     public function matchPlayedBy(string $team1, string $team2): void
     {
-        $this->teams[$team1]['MP'] += 1;
-        $this->teams[$team2]['MP'] += 1;
+        $this->teams[$team1]['MP']++;
+        $this->teams[$team2]['MP']++;
     }
 
     public function matchWin(string $team): void
     {
-        $this->teams[$team]['W'] += 1;
+        $this->teams[$team]['W']++;
         $this->teams[$team]['P'] += 3;
     }
 
     public function matchLoss(string $team): void
     {
-        $this->teams[$team]['L'] += 1;
+        $this->teams[$team]['L']++;
         $this->teams[$team]['P'] += 0;
     }
 
     public function matchDraw(string $team): void
     {
-        $this->teams[$team]['D'] += 1;
-        $this->teams[$team]['P'] += 1;
+        $this->teams[$team]['D']++;
+        $this->teams[$team]['P']++;
     }
 
     public function calculateMatch($match): void
@@ -82,7 +82,7 @@ class Tournament
 
     public function displayScoreBoard(): string
     {
-        $board = "Team                           | MP |  W |  D |  L |  P";
+        $board = 'Team                           | MP |  W |  D |  L |  P';
 
         foreach ($this->teams as $name => $scores) {
             $name = str_pad($name, 31, ' ');

@@ -5,7 +5,7 @@ namespace App;
 use InvalidArgumentException;
 
 /**
- * @link https://exercism.org/tracks/php/exercises/hamming
+ * @see https://exercism.org/tracks/php/exercises/hamming
  */
 class Hamming
 {

@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * @link https://exercism.org/tracks/php/exercises/resistor-color
+ * @see https://exercism.org/tracks/php/exercises/resistor-color
  */
 class ResistorColor
 {

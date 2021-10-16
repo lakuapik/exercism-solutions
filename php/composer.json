@@ -1,21 +1,43 @@
 {
     "name": "lakuapik/exercism-php",
     "description": "Exercism PHP Solutions",
+    "keywords": ["exercism", "php"],
     "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "David Adi Nugroho",
+            "homepage": "https://davids.id"
+        }
+    ],
+    "require": {
+        "php": "^8"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.20",
+        "symfony/var-dumper": "^5.3",
+        "friendsofphp/php-cs-fixer": "^3.2",
+        "pestphp/pest-plugin-parallel": "^0.3.1"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
         }
     },
-    "scripts": {
-        "lint": "vendor/bin/php-cs-fixer fix src",
-        "test": "vendor/bin/pest --stop-on-failure"
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
-    "require": {
-        "php": "^8",
-        "pestphp/pest": "^1.20",
-        "symfony/var-dumper": "^5.3",
-        "friendsofphp/php-cs-fixer": "^3.2"
+    "scripts": {
+        "cov": "XDEBUG_MODE=coverage pest --parallel --coverage",
+        "cov:html": "@cov --coverage-html=coverage",
+        "cov:serve": "php -S localhost:1234 -t coverage",
+        "lint": "php-cs-fixer fix -v",
+        "pest": "pest --stop-on-failure --parallel",
+        "test": [
+            "@lint --dry-run",
+            "@pest"
+        ]
     }
 }

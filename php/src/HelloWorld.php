@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * @link https://exercism.org/tracks/php/exercises/hello-world
+ * @see https://exercism.org/tracks/php/exercises/hello-world
  */
 class HelloWorld
 {

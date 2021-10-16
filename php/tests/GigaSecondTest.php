@@ -2,10 +2,16 @@
 
 // https://github.com/exercism/php/blob/7e2a5b39e73f62c1c6fa08d04b46ce7c705eaa34/exercises/practice/gigasecond/GigasecondTest.php
 
-use App\GigaSecond;
+namespace Tests;
 
-test('return type')->expect(GigaSecond::handle(new DateTimeImmutable()))
-    ->toBeInstanceOf(DateTimeImmutable::class);
+use App\GigaSecond;
+use DateTimeImmutable;
+use DateTimeZone;
+
+test('return type', function () {
+    expect(GigaSecond::handle(new DateTimeImmutable()))
+        ->toBeInstanceOf(DateTimeImmutable::class);
+});
 
 test('from', function ($input, $expected) {
     $utc = new DateTimeZone('UTC');
