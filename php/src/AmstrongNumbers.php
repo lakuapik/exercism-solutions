@@ -7,8 +7,11 @@ namespace App;
  */
 class AmstrongNumbers
 {
-    public static function handle(int $number): bool
+    public static function determine(int $number): bool
     {
-        throw new \BadFunctionCallException('Implement the isArmstrongNumber function');
+        return $number == array_reduce(
+            str_split($number),
+            fn ($carry, $digit) => $carry + pow($digit, strlen($number))
+        );
     }
 }

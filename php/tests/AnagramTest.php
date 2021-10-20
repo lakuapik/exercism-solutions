@@ -86,13 +86,13 @@ test('EliminatesAnagramsWithTheSameChecksum', function () {
     expect(Anagram::handle('mass', ['last']))->toBe([]);
 });
 
-test('DetectsUnicodeAnagrams', function () {
-    expect(Anagram::handle('ΑΒΓ', ['ΒΓΑ', 'ΒΓΔ', 'γβα']))->toBe(['ΒΓΑ', 'γβα']);
-})->skip('This requires `mbstring` to be installed and thus is optional.');
+// test('DetectsUnicodeAnagrams', function () {
+//     expect(Anagram::handle('ΑΒΓ', ['ΒΓΑ', 'ΒΓΔ', 'γβα']))->toBe(['ΒΓΑ', 'γβα']);
+// })->skip('This requires `mbstring` to be installed and thus is optional.');
 
-test('EliminatesMisleadingUnicodeAnagrams', function () {
-    expect(Anagram::handle('ΑΒΓ', ['ABΓ']))->toBe([]);
-})->skip('This requires `mbstring` to be installed and thus is optional.');
+// test('EliminatesMisleadingUnicodeAnagrams', function () {
+//     expect(Anagram::handle('ΑΒΓ', ['ABΓ']))->toBe([]);
+// })->skip('This requires `mbstring` to be installed and thus is optional.');
 
 test('CapitalWordIsNotOwnAnagram', function () {
     expect(Anagram::handle('BANANA', ['Banana']))->toBe([]);

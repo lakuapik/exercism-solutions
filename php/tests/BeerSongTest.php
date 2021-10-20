@@ -10,26 +10,26 @@ test('FirstVerse', function () {
     $expected = "99 bottles of beer on the wall, 99 bottles of beer.\n" .
         "Take one down and pass it around, 98 bottles of beer on the wall.\n";
     expect(new BeerSong())->verse(99)->toBe($expected);
-})->skip();
+});
 
 test('Verse2', function () {
     $expected = "2 bottles of beer on the wall, 2 bottles of beer.\n" .
         "Take one down and pass it around, 1 bottle of beer on the wall.\n";
     expect(new BeerSong())->verse(2)->toBe($expected);
-})->skip();
+});
 
 test('Verse1', function () {
     $expected = "1 bottle of beer on the wall, 1 bottle of beer.\n" .
         "Take it down and pass it around, no more bottles of beer on the wall.\n";
     expect(new BeerSong())->verse(1)->toBe($expected);
-})->skip();
+});
 
 test('Verse0', function () {
     $expected = "No more bottles of beer on the wall, no more bottles of beer.\n" .
         'Go to the store and buy some more, 99 bottles of beer on the wall.';
     $song = new BeerSong();
     $this->assertEquals($expected, $song->verse(0));
-})->skip();
+});
 
 test('ACoupleVerses', function () {
     $expected = "99 bottles of beer on the wall, 99 bottles of beer.\n" .
@@ -38,7 +38,7 @@ test('ACoupleVerses', function () {
         "98 bottles of beer on the wall, 98 bottles of beer.\n" .
         "Take one down and pass it around, 97 bottles of beer on the wall.\n";
     expect(new BeerSong())->verses(99, 98)->toBe($expected);
-})->skip();
+});
 
 test('AFewVerses', function () {
     $expected = "2 bottles of beer on the wall, 2 bottles of beer.\n" .
@@ -50,7 +50,7 @@ test('AFewVerses', function () {
         "No more bottles of beer on the wall, no more bottles of beer.\n" .
         'Go to the store and buy some more, 99 bottles of beer on the wall.';
     expect(new BeerSong())->verses(2, 0)->toBe($expected);
-})->skip();
+});
 
 test('WholeSong', function () {
     $expected = <<<SONG
@@ -256,4 +256,4 @@ No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall.
 SONG;
     expect(new BeerSong())->lyrics()->toBe($expected);
-})->skip();
+});

@@ -16,7 +16,7 @@ test('LowerCaseWord', function () {
 
 test('CamelCase', function () {
     expect(Acronym::handle('HyperText Markup Language'))->toBe('HTML');
-})->skip();
+});
 
 test('AllCapsWords', function () {
     expect(Acronym::handle('PHP: Hypertext Preprocessor'))->toBe('PHP');
@@ -25,7 +25,7 @@ test('AllCapsWords', function () {
 test('Hyphenated', function () {
     expect(Acronym::handle('Complementary metal-oxide semiconductor'))
         ->toBe('CMOS');
-})->skip();
+});
 
 test('OneWordIsNotAbbreviated', function () {
     expect(Acronym::handle('Word'))->toBeEmpty();

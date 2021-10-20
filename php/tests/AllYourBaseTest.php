@@ -20,7 +20,7 @@ test('SingleDecimalToBinary', function () {
 
 test('BinaryToMultipleDecimal', function () {
     expect(AllYourBase::handle(2, [1, 0, 1, 0, 1, 0], 10))->toBe([4, 2]);
-})->skip();
+});
 
 test('DecimalToBinary', function () {
     expect(AllYourBase::handle(10, [4, 2], 2))->toBe([1, 0, 1, 0, 1, 0]);
@@ -40,7 +40,7 @@ test('15BitIntegers', function () {
 
 test('EmptyListReturnsNull', function () {
     expect(AllYourBase::handle(10, [], 10))->toBeNull();
-})->skip();
+});
 
 test('SingleZeroReturnsNull', function () {
     expect(AllYourBase::handle(10, [0], 2))->toBeNull();
@@ -56,18 +56,18 @@ test('LeadingZerosReturnsNull', function () {
 
 test('FirstBaseIsOne', function () {
     expect(AllYourBase::handle(1, [6, 0], 2))->toBeNull();
-})->skip();
+});
 
 test('FirstBaseIsZero', function () {
     expect(AllYourBase::handle(0, [6, 0], 2))->toBeNull();
-})->skip();
+});
 
 test('FirstBaseIsNegative', function () {
     expect(AllYourBase::handle(-1, [6, 0], 2))->toBeNull();
-})->skip();
+});
 
 test('NegativeDigit', function () {
-    expect(AllYourBase::handle(10, [1, -1, 0], 2))->toBeNull(null);
+    expect(AllYourBase::handle(10, [1, -1, 0], 2))->toBeNull();
 })->skip();
 
 test('InvalidPositiveDigit', function () {
@@ -76,16 +76,16 @@ test('InvalidPositiveDigit', function () {
 
 test('SecondBaseIsOne', function () {
     expect(AllYourBase::handle(2, [1, 1, 0], 1))->toBeNull();
-})->skip();
+});
 
 test('SecondBaseIsZero', function () {
     expect(AllYourBase::handle(2, [1, 1, 0], 0))->toBeNull();
-})->skip();
+});
 
 test('SecondBaseIsNegative', function () {
     expect(AllYourBase::handle(2, [1, 1, 0], -1))->toBeNull();
-})->skip();
+});
 
 test('BothBasesIsNegative', function () {
     expect(AllYourBase::handle(-3, [1, 1, 0], -1))->toBeNull();
-})->skip();
+});

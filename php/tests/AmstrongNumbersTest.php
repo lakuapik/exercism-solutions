@@ -7,37 +7,37 @@ namespace Tests;
 use App\AmstrongNumbers;
 
 test('Zero', function () {
-    expect(AmstrongNumbers::handle(0))->toBeTrue();
-})->skip();
+    expect(AmstrongNumbers::determine(0))->toBeTrue();
+});
 
 test('SingleDigit', function () {
-    expect(AmstrongNumbers::handle(5))->toBeTrue();
-})->skip();
+    expect(AmstrongNumbers::determine(5))->toBeTrue();
+});
 
 test('DoubleDigit', function () {
-    expect(AmstrongNumbers::handle(10))->toBeFalse();
-})->skip();
+    expect(AmstrongNumbers::determine(10))->toBeFalse();
+});
 
 test('ThreeDigitIsArmstrongNumber', function () {
-    expect(AmstrongNumbers::handle(153))->toBeTrue();
-})->skip();
+    expect(AmstrongNumbers::determine(153))->toBeTrue();
+});
 
 test('ThreeDigitIsNotArmstrongNumber', function () {
-    expect(AmstrongNumbers::handle(100))->toBeFalse();
-})->skip();
+    expect(AmstrongNumbers::determine(100))->toBeFalse();
+});
 
 test('FourDigitIsArmstrongNumber', function () {
-    expect(AmstrongNumbers::handle(9474))->toBeTrue();
-})->skip();
+    expect(AmstrongNumbers::determine(9474))->toBeTrue();
+});
 
 test('FourDigitIsNotArmstrongNumber', function () {
-    expect(AmstrongNumbers::handle(9475))->toBeFalse();
-})->skip();
+    expect(AmstrongNumbers::determine(9475))->toBeFalse();
+});
 
 test('SevenDigitIsArmstrongNumber', function () {
-    expect(AmstrongNumbers::handle(9926315))->toBeTrue();
-})->skip();
+    expect(AmstrongNumbers::determine(9926315))->toBeTrue();
+});
 
 test('SevenDigitIsNotArmstrongNumber', function () {
-    expect(AmstrongNumbers::handle(9926314))->toBeFalse();
-})->skip();
+    expect(AmstrongNumbers::determine(9926314))->toBeFalse();
+});
