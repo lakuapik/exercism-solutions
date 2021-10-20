@@ -16,8 +16,7 @@
     "require-dev": {
         "pestphp/pest": "^1.20",
         "symfony/var-dumper": "^5.3",
-        "friendsofphp/php-cs-fixer": "^3.2",
-        "pestphp/pest-plugin-parallel": "^0.3.1"
+        "friendsofphp/php-cs-fixer": "^3.2"
     },
     "autoload": {
         "psr-4": {
@@ -30,11 +29,11 @@
         }
     },
     "scripts": {
-        "cov": "XDEBUG_MODE=coverage pest --parallel --coverage",
+        "cov": "XDEBUG_MODE=coverage pest --coverage",
         "cov:html": "@cov --coverage-html=coverage",
         "cov:serve": "php -S localhost:1234 -t coverage",
         "lint": "php-cs-fixer fix -v",
-        "pest": "pest --stop-on-failure --parallel",
+        "pest": "pest --stop-on-failure",
         "test": [
             "@lint --dry-run",
             "@pest"
