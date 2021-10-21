@@ -8,7 +8,7 @@ use App\BookStore;
 
 test('SingleBook', function () {
     expect(BookStore::total([1]))->toBe(8.0);
-})->skip();
+});
 
 test('TwoSame', function () {
     expect(BookStore::total([2, 2]))->toBe(16.0);

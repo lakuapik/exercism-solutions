@@ -69,165 +69,121 @@ test('OnTheHour', function () {
 // }
 
 // test('WrapAroundAtMidnight', function() {
-
-// })->skip();
 //     expect(new Clock(23, 30);
 
 //     $clock = $clock->add(60);
 
 //     $this->assertEquals('00:30', $clock->__toString());
-// }
+// })->skip();
 
 // test('SubtractMinutes', function() {
-
-// })->skip();
 //     expect(new Clock(10);
 
 //     $clock = $clock->sub(90);
 
 //     $this->assertEquals('08:30', $clock->__toString());
-// }
+// })->skip();
 
 // test('SubtractMoreThanTwoHours', function() {
-
-// })->skip();
 //     expect(new Clock(6, 15);
 
 //     $clock = $clock->sub(160);
 
 //     $this->assertEquals('03:35', $clock->__toString());
-// }
+// })->skip();
 
 // test('SubtractMoreThanTwoHoursWithNegativeAdd', function() {
-
-// })->skip();
 //     expect(new Clock(6, 15);
 
 //     $clock = $clock->add(-160);
 
 //     $this->assertEquals('03:35', $clock->__toString());
-// }
+// })->skip();
 
 // test('SubtractMoreThanTwoDays', function() {
-
-// })->skip();
 //     expect(new Clock(2, 20);
 
 //     $clock = $clock->sub(3000);
 
 //     $this->assertEquals('00:20', $clock->__toString());
-// }
+// })->skip();
 
 // test('WrapAroundBackwards', function() {
-
-// })->skip();
 //     expect(new Clock(0, 30);
 
 //     $clock = $clock->sub(60);
 
 //     $this->assertEquals('23:30', $clock->__toString());
-// }
+// })->skip();
 
 // test('WrapAroundDay', function() {
-
-// })->skip();
 //     expect(new Clock(5, 32);
 
 //     $clock = $clock->add(25 * 60);
 
 //     $this->assertEquals('06:32', $clock->__toString());
-// }
+// })->skip();
 
 // test('WrapAroundDayBackwards', function() {
-
-// })->skip();
 //     expect(new Clock(5, 32);
 
 //     $clock = $clock->sub(25 * 60);
 
 //     $this->assertEquals('04:32', $clock->__toString());
-// }
+// })->skip();
 
 // test('EquivalentClocks', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(15, 37), new Clock(15, 37));
-// }
+// })->skip();
 
 // test('InequivalentClocks', function() {
-
-// })->skip();
 //     $this->assertNotEquals(new Clock(01, 01), new Clock(18, 32));
-// }
+// })->skip();
 
 // test('EquivalentClocksWithHourOverflowBySeveralDays', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(3, 11), new Clock(99, 11));
-// }
+// })->skip();
 
 // test('EquivalentClocksWithNegativeHour', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(22, 40), new Clock(-2, 40));
-// }
+// })->skip();
 
 // test('EquivalentClocksWithNegativeHourThatWraps', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(17, 3), new Clock(-31, 3));
-// }
+// })->skip();
 
 // test('EquivalentClocksWithMinuteOverflowBySeveralDays', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(2, 2), new Clock(2, 4322));
-// }
+// })->skip();
 
 // test('EquivalentClocksWithNegativeMinuteOverflow', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(2, 40), new Clock(3, -20));
-// }
+// })->skip();
 
 // test('EquivalentClocksWithNegativeHoursAndMinutes', function() {
-
-// })->skip();
 //     $this->assertEquals(new Clock(7, 32), new Clock(-12, -268));
-// }
+// })->skip();
 
 // test('HoursRollOver', function() {
-
-// })->skip();
 //     $this->assertEquals('04:00', (new Clock(100))->__toString());
-// }
+// })->skip();
 
 // test('MinutesRollOver', function() {
-
-// })->skip();
 //     $this->assertEquals('04:43', (new Clock(0, 1723))->__toString());
-// }
+// })->skip();
 
 // test('HoursAndMinutesRollOver', function() {
-
-// })->skip();
 //     $this->assertEquals('00:00', (new Clock(72, 8640))->__toString());
-// }
+// })->skip();
 
 // test('NegativeHoursRollOver', function() {
-
-// })->skip();
 //     $this->assertEquals('05:00', (new Clock(-91))->__toString());
-// }
+// })->skip();
 
 // test('NegativeMinutesRollOver', function() {
-
-// })->skip();
 //     $this->assertEquals('16:40', (new Clock(1, -4820))->__toString());
-// }
+// })->skip();
 
 // test('NegativeHoursAndMinutesRollOver', function() {
-
-// })->skip();
 //     $this->assertEquals('22:10', (new Clock(-121, -5810))->__toString());
-// }
+// })->skip();

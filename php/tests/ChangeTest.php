@@ -8,11 +8,11 @@ use App\Change;
 
 test('SingleCoinChange', function () {
     expect(Change::findFewestCoins([1, 5, 10, 25, 100], 25))->toBe([25]);
-})->skip();
+});
 
 test('Change', function () {
     expect(Change::findFewestCoins([1, 5, 10, 25, 100], 15))->toBe([5, 10]);
-})->skip();
+});
 
 test('ChangeWithLilliputianCoins', function () {
     expect(Change::findFewestCoins([1, 4, 15, 20, 50], 23))->toBe([4, 4, 15]);
@@ -28,7 +28,7 @@ test('WithLargeTargetValue', function () {
             2, 2, 5, 20, 20, 50, 100, 100,
             100, 100, 100, 100, 100, 100, 100,
         ]);
-})->skip();
+});
 
 test('PossibleChangeWithoutUnitCoinsAvailable', function () {
     expect(Change::findFewestCoins([2, 5, 10, 20, 50], 21))

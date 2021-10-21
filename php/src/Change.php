@@ -9,6 +9,21 @@ class Change
 {
     public static function findFewestCoins(array $coins, int $amount): array
     {
-        throw new \BadFunctionCallException('Implement the findFewestCoins function');
+        rsort($coins, SORT_NUMERIC);
+
+        while ($amount > 0) {
+            foreach ($coins as $coin) {
+                if ($amount < $coin) {
+                    continue;
+                }
+                $result[] = $coin;
+                $amount -= $coin;
+                break;
+            }
+        }
+
+        sort($result, SORT_NUMERIC);
+
+        return $result;
     }
 }
