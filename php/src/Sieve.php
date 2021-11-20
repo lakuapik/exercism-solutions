@@ -3,7 +3,7 @@
 namespace App;
 
 /**
- * @see https://exercism.org/tracks/php/exercises/luhn
+ * @see https://exercism.org/tracks/php/exercises/sieve
  */
 class Sieve
 {

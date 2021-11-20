@@ -6,58 +6,47 @@ namespace Tests;
 
 use App\SpaceAge;
 
-const DELTA = 0.01;
-
 test('AgeInSeconds', function () {
-    $age = new SpaceAge(1000000);
-
-    $this->assertEquals(1000000, $age->seconds());
-})->skip();
+    expect(new SpaceAge(1_000_000))
+        ->seconds()->toEqual(1_000_000);
+});
 
 test('AgeOnEarth', function () {
-    $age = new SpaceAge(1000000000);
-
-    $this->assertEqualsWithDelta(31.69, $age->earth(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(1_000_000_000))
+        ->earth()->toEqualWithDelta(31.69, 0.01);
+});
 
 test('AgeOnMercury', function () {
-    $age = new SpaceAge(2134835688);
-
-    $this->assertEqualsWithDelta(280.88, $age->mercury(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(2_134_835_688))
+        ->mercury()->toEqualWithDelta(280.88, 0.01);
+});
 
 test('AgeOnVenus', function () {
-    $age = new SpaceAge(189839836);
-
-    $this->assertEqualsWithDelta(9.78, $age->venus(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(189_839_836))
+        ->venus()->toEqualWithDelta(9.78, 0.01);
+});
 
 test('AgeOnMars', function () {
-    $age = new SpaceAge(2329871239);
-
-    $this->assertEqualsWithDelta(39.25, $age->mars(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(2_329_871_239))
+        ->mars()->toEqualWithDelta(39.25, 0.01);
+});
 
 test('AgeOnJupiter', function () {
-    $age = new SpaceAge(901876382);
-
-    $this->assertEqualsWithDelta(2.41, $age->jupiter(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(901_876_382))
+        ->jupiter()->toEqualWithDelta(2.41, 0.01);
+});
 
 test('AgeOnSaturn', function () {
-    $age = new SpaceAge(3000000000);
-
-    $this->assertEqualsWithDelta(3.23, $age->saturn(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(3_000_000_000))
+        ->saturn()->toEqualWithDelta(3.23, 0.01);
+});
 
 test('AgeOnUranus', function () {
-    $age = new SpaceAge(3210123456);
-
-    $this->assertEqualsWithDelta(1.21, $age->uranus(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(3_210_123_456))
+        ->uranus()->toEqualWithDelta(1.21, 0.01);
+});
 
 test('AgeOnNeptune', function () {
-    $age = new SpaceAge(8210123456);
-
-    $this->assertEqualsWithDelta(1.58, $age->neptune(), self::DELTA);
-})->skip();
+    expect(new SpaceAge(8210123456))
+        ->neptune()->toEqualWithDelta(1.58, 0.01);
+});

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use InvalidArgumentException;
+
 /**
  * @see https://exercism.org/tracks/php/exercises/grains
  */
@@ -9,11 +11,21 @@ class Grains
 {
     public static function square(int $number): string
     {
-        throw new \BadFunctionCallException('Implement the square function');
+        if ($number < 1 || $number > 64) {
+            throw new InvalidArgumentException();
+        }
+
+        $result = 1;
+
+        for ($i=2; $i <= $number; $i++) {
+            $result = 2 * $result;
+        }
+
+        return str_replace('-', '', sprintf('%d', $result));
     }
 
     public static function total(): string
     {
-        throw new \BadFunctionCallException('Implement the total function');
+        return '18446744073709551615';
     }
 }

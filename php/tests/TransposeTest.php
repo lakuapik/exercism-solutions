@@ -4,6 +4,8 @@
 
 namespace Tests;
 
+use App\Transpose;
+
 test('EmptyString', function () {
     expect(Transpose::handle(['']))->toBe(['']);
 })->skip();

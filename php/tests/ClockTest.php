@@ -7,183 +7,117 @@ namespace Tests;
 use App\Clock;
 
 test('OnTheHour', function () {
-    expect(new Clock(8))->asStringToBe('08:00');
+    expect((string) new Clock(8))->toBe('08:00');
 });
 
-// test('PastTheHour', function() {
+test('PastTheHour', function () {
+    expect((string) new Clock(11, 9))->toBe('11:09');
+});
 
-// })->skip();
-//     expect(new Clock(11, 9);
+test('AddingAFewMinutes', function () {
+    expect((string) (new Clock(10))->add(3))->toBe('10:03');
+});
 
-//     $this->assertEquals('11:09', $clock->__toString());
-// }
+test('AddingZeroMinutes', function () {
+    expect((string) (new Clock(6, 41))->add(0))->toBe('06:41');
+});
 
-// test('AddingAFewMinutes', function() {
+test('AddingOverAnHour', function () {
+    expect((string) (new Clock(10))->add(61))->toBe('11:01');
+});
 
-// })->skip();
-//     expect(new Clock(10);
+test('AddingMoreThanTwoHoursWithCarry', function () {
+    expect((string) (new Clock(0, 45))->add(160))->toBe('03:25');
+});
 
-//     $clock = $clock->add(3);
+test('AddingMoreThanTwoDays', function () {
+    expect((string) (new Clock(1, 1))->add(3500))->toBe('11:21');
+});
 
-//     $this->assertEquals('10:03', $clock->__toString());
-// }
+test('WrapAroundAtMidnight', function () {
+    expect((string) (new Clock(23, 30))->add(60))->toBe('00:30');
+});
 
-// test('AddingZeroMinutes', function() {
+test('SubtractMinutes', function () {
+    expect((string) (new Clock(10))->sub(90))->toBe('08:30');
+});
 
-// })->skip();
-//     expect(new Clock(6, 41);
+test('SubtractMoreThanTwoHours', function () {
+    expect((string) (new Clock(6, 15))->sub(160))->toBe('03:35');
+});
 
-//     $clock = $clock->add(0);
+test('SubtractMoreThanTwoHoursWithNegativeAdd', function () {
+    expect((string) (new Clock(6, 15))->add(-160))->toBe('03:35');
+});
 
-//     $this->assertEquals('06:41', $clock->__toString());
-// }
+test('SubtractMoreThanTwoDays', function () {
+    expect((string) (new Clock(2, 20))->sub(3000))->toBe('00:20');
+});
 
-// test('AddingOverAnHour', function() {
+test('WrapAroundBackwards', function () {
+    expect((string) (new Clock(0, 30))->sub(60))->toBe('23:30');
+});
 
-// })->skip();
-//     expect(new Clock(10);
+test('WrapAroundDay', function () {
+    expect((string) (new Clock(5, 32))->add(25 * 60))->toBe('06:32');
+});
 
-//     $clock = $clock->add(61);
+test('WrapAroundDayBackwards', function () {
+    expect((string) (new Clock(5, 32))->sub(25 * 60))->toBe('04:32');
+});
 
-//     $this->assertEquals('11:01', $clock->__toString());
-// }
+test('EquivalentClocks', function () {
+    expect(new Clock(15, 37))->toEqual(new Clock(15, 37));
+});
 
-// test('AddingMoreThanTwoHoursWithCarry', function() {
+test('InequivalentClocks', function () {
+    expect(new Clock(01, 01))->not->toEqual(new Clock(18, 32));
+});
 
-// })->skip();
-//     expect(new Clock(0, 45);
+test('EquivalentClocksWithHourOverflowBySeveralDays', function () {
+    expect(new Clock(3, 11))->toEqual(new Clock(99, 11));
+});
 
-//     $clock = $clock->add(160);
+test('EquivalentClocksWithNegativeHour', function () {
+    expect(new Clock(22, 40))->toEqual(new Clock(-2, 40));
+});
 
-//     $this->assertEquals('03:25', $clock->__toString());
-// }
+test('EquivalentClocksWithNegativeHourThatWraps', function () {
+    expect(new Clock(17, 3))->toEqual(new Clock(-31, 3));
+});
 
-// test('AddingMoreThanTwoDays', function() {
+test('EquivalentClocksWithMinuteOverflowBySeveralDays', function () {
+    expect(new Clock(2, 2))->toEqual(new Clock(2, 4322));
+});
 
-// })->skip();
-//     expect(new Clock(1, 1);
+test('EquivalentClocksWithNegativeMinuteOverflow', function () {
+    expect(new Clock(2, 40))->toEqual(new Clock(3, -20));
+});
 
-//     $clock = $clock->add(3500);
+test('EquivalentClocksWithNegativeHoursAndMinutes', function () {
+    expect(new Clock(7, 32))->toEqual(new Clock(-12, -268));
+});
 
-//     $this->assertEquals('11:21', $clock->__toString());
-// }
+test('HoursRollOver', function () {
+    expect('04:00')->toEqual((string) new Clock(100));
+});
 
-// test('WrapAroundAtMidnight', function() {
-//     expect(new Clock(23, 30);
+test('MinutesRollOver', function () {
+    expect('04:43')->toEqual((string) new Clock(0, 1723));
+});
 
-//     $clock = $clock->add(60);
+test('HoursAndMinutesRollOver', function () {
+    expect('00:00')->toEqual((string) new Clock(72, 8640));
+});
 
-//     $this->assertEquals('00:30', $clock->__toString());
-// })->skip();
+test('NegativeHoursRollOver', function () {
+    expect('05:00')->toEqual((string) new Clock(-91));
+});
 
-// test('SubtractMinutes', function() {
-//     expect(new Clock(10);
+test('NegativeMinutesRollOver', function () {
+    expect('16:40')->toEqual((string) new Clock(1, -4820));
+});
 
-//     $clock = $clock->sub(90);
-
-//     $this->assertEquals('08:30', $clock->__toString());
-// })->skip();
-
-// test('SubtractMoreThanTwoHours', function() {
-//     expect(new Clock(6, 15);
-
-//     $clock = $clock->sub(160);
-
-//     $this->assertEquals('03:35', $clock->__toString());
-// })->skip();
-
-// test('SubtractMoreThanTwoHoursWithNegativeAdd', function() {
-//     expect(new Clock(6, 15);
-
-//     $clock = $clock->add(-160);
-
-//     $this->assertEquals('03:35', $clock->__toString());
-// })->skip();
-
-// test('SubtractMoreThanTwoDays', function() {
-//     expect(new Clock(2, 20);
-
-//     $clock = $clock->sub(3000);
-
-//     $this->assertEquals('00:20', $clock->__toString());
-// })->skip();
-
-// test('WrapAroundBackwards', function() {
-//     expect(new Clock(0, 30);
-
-//     $clock = $clock->sub(60);
-
-//     $this->assertEquals('23:30', $clock->__toString());
-// })->skip();
-
-// test('WrapAroundDay', function() {
-//     expect(new Clock(5, 32);
-
-//     $clock = $clock->add(25 * 60);
-
-//     $this->assertEquals('06:32', $clock->__toString());
-// })->skip();
-
-// test('WrapAroundDayBackwards', function() {
-//     expect(new Clock(5, 32);
-
-//     $clock = $clock->sub(25 * 60);
-
-//     $this->assertEquals('04:32', $clock->__toString());
-// })->skip();
-
-// test('EquivalentClocks', function() {
-//     $this->assertEquals(new Clock(15, 37), new Clock(15, 37));
-// })->skip();
-
-// test('InequivalentClocks', function() {
-//     $this->assertNotEquals(new Clock(01, 01), new Clock(18, 32));
-// })->skip();
-
-// test('EquivalentClocksWithHourOverflowBySeveralDays', function() {
-//     $this->assertEquals(new Clock(3, 11), new Clock(99, 11));
-// })->skip();
-
-// test('EquivalentClocksWithNegativeHour', function() {
-//     $this->assertEquals(new Clock(22, 40), new Clock(-2, 40));
-// })->skip();
-
-// test('EquivalentClocksWithNegativeHourThatWraps', function() {
-//     $this->assertEquals(new Clock(17, 3), new Clock(-31, 3));
-// })->skip();
-
-// test('EquivalentClocksWithMinuteOverflowBySeveralDays', function() {
-//     $this->assertEquals(new Clock(2, 2), new Clock(2, 4322));
-// })->skip();
-
-// test('EquivalentClocksWithNegativeMinuteOverflow', function() {
-//     $this->assertEquals(new Clock(2, 40), new Clock(3, -20));
-// })->skip();
-
-// test('EquivalentClocksWithNegativeHoursAndMinutes', function() {
-//     $this->assertEquals(new Clock(7, 32), new Clock(-12, -268));
-// })->skip();
-
-// test('HoursRollOver', function() {
-//     $this->assertEquals('04:00', (new Clock(100))->__toString());
-// })->skip();
-
-// test('MinutesRollOver', function() {
-//     $this->assertEquals('04:43', (new Clock(0, 1723))->__toString());
-// })->skip();
-
-// test('HoursAndMinutesRollOver', function() {
-//     $this->assertEquals('00:00', (new Clock(72, 8640))->__toString());
-// })->skip();
-
-// test('NegativeHoursRollOver', function() {
-//     $this->assertEquals('05:00', (new Clock(-91))->__toString());
-// })->skip();
-
-// test('NegativeMinutesRollOver', function() {
-//     $this->assertEquals('16:40', (new Clock(1, -4820))->__toString());
-// })->skip();
-
-// test('NegativeHoursAndMinutesRollOver', function() {
-//     $this->assertEquals('22:10', (new Clock(-121, -5810))->__toString());
-// })->skip();
+test('NegativeHoursAndMinutesRollOver', function () {
+    expect('22:10')->toEqual((string) new Clock(-121, -5810));
+});
